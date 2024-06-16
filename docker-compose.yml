@@ -1,0 +1,13 @@
+version: "3"
+services:
+  jupyter:
+    build: .
+    container_name: "hogehoge" #コンテナの名前を決める
+    command:
+     jupyter-lab --ip 0.0.0.0 --port=8888 --allow-root --no-browser --NotebookApp.token=''
+    ports:
+      - "8888:8888"
+    working_dir: '/notebooks'
+    tty: true
+    volumes:
+      - ./notebooks:/notebooks
